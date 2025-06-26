@@ -14,12 +14,12 @@ class SpotifyService:
     """Service for interacting with Spotify API."""
 
     def __inti__(self, client_id: str, client_secret: str, redirect_url: str = None):
-        self.client_id - client_id
+        self.client_id = client_id
         self.client_secret = client_secret
         self.redirect_url = redirect_url
 
         auth_manager = SpotifyClientCredentials(
-            client_id=client_id
+            client_id=client_id,
             client_secret=client_secret
         )
         self.sp = spotipy.Spotify(auth_manager=auth_manager)
