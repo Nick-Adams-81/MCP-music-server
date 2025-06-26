@@ -6,7 +6,7 @@ with the Last.fm API.
 """
 
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 import httpx
 
 logger = logging.getLogger(__name__)
@@ -22,11 +22,11 @@ class LastfmService:
             """Search tracks on Last.fm."""
             try: 
                 params = {
-                    "method": "track.search",
-                    "track": query,
-                    "api_key": self.api_key,
-                    "format": "json",
-                    "limit": limit
+                    'method': 'track.search',
+                    'track': query,
+                    'api_key': self.api_key,
+                    'format': 'json',
+                    'limit': limit
                 }
 
                 async with httpx.AsyncClient() as client:
@@ -58,11 +58,11 @@ class LastfmService:
             """Search for albums on Last.fm"""
             try:
                 params = {
-                    "method": "album.search",
-                    "album": query,
-                    "api_key": self.api_key,
-                    "format": "json",
-                    "limit":limit
+                    'method': 'album.search',
+                    'album': query,
+                    'api_key': self.api_key,
+                    'format': 'json',
+                    'limit':limit
                 }
 
                 async with httpx.AsyncClient() as client:
@@ -95,11 +95,11 @@ class LastfmService:
             """Search an artist on Last.fm"""
             try:
                 params = {
-                    "method": "artist.search",
-                    "artist": query,
-                    "api_key": self.api_key,
-                    "format": "json",
-                    "limit": limit
+                    'method': 'artist.search',
+                    'artist': query,
+                    'api_key': self.api_key,
+                    'format': 'json',
+                    'limit': limit
                 }
 
                 async with httpx.AsyncClient() as client:
