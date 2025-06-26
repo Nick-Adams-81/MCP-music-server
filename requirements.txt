@@ -1,0 +1,14 @@
+mcp>=1.0.0
+httpx>=0.25.0
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+spotipy>=2.22.1
+google-api-python-client>=2.100.0
+google-auth>=2.23.0
+google-auth-oauthlib>=1.1.0
+google-auth-httplib2>=0.1.1
+requests>=2.31.0
+aiofiles>=23.2.0
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-mock>=3.11.0 
