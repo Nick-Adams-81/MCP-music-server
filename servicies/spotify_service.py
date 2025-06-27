@@ -13,10 +13,10 @@ logger = logging.getLogger(__name__)
 class SpotifyService:
     """Service for interacting with Spotify API."""
 
-    def __inti__(self, client_id: str, client_secret: str, redirect_url: str = None):
+    def __init__(self, client_id: str, client_secret: str, redirect_uri: str = None):
         self.client_id = client_id
         self.client_secret = client_secret
-        self.redirect_url = redirect_url
+        self.redirect_uri = redirect_uri
 
         auth_manager = SpotifyClientCredentials(
             client_id=client_id,
@@ -37,7 +37,7 @@ class SpotifyService:
                     "artist": item['artists'][0]['name'] if item['artists'] else "Unknown",
                     "album": item['album']['name'],
                     "duration_ms": item['duration_ms'],
-                    "popularity:": item['popularity'],
+                    "popularity": item['popularity'],
                     "spotify_url": item['external_urls']['spotify'],
                     "preview_url": item['preview_url'],
                     "release_date": item['album']['release_date'],
@@ -56,7 +56,7 @@ class SpotifyService:
             results = self.sp.search(q=query, type='artist', limit=limit)
             artists = []
 
-            for item in results['srtists']['items']:
+            for item in results['artists']['items']:
                 artist = {
                     "id": item['id'],
                     "name": item['name'],
@@ -64,7 +64,7 @@ class SpotifyService:
                     "followers": item['followers']['total'],
                     "genres": item['genres'],
                     "spotify_url": item['external_urls']['spotify'],
-                    "image_url": item['images'][0]['url'] if item['images'] else None
+                    "image_url": item['images'][0]['urls'] if item['images'] else None
                 }
                 artists.append(artist)
             return artists
@@ -95,14 +95,14 @@ class SpotifyService:
             logger.error(f"Error searching Spotify albums: {e}")
             return []
         
-    async def get_reccomendations(self, 
+    async def get_recommendations(self, 
                                   seed_tracks: List[str] = None, 
                                   seed_artists: List[str] = None, 
                                   seed_genres: List[str] = None, 
                                   limit: int = 10) -> List[Dict[str, Any]]:
-        """Get track reccomendations based on seeds"""
+        """Get track recommendations based on seeds"""
         try:
-            reccomendations = self.sp.recommendations(
+            recommendations = self.sp.recommendations(
                 seed_tracks=seed_tracks,
                 seed_artists=seed_artists,
                 seed_genres=seed_genres,
@@ -111,7 +111,7 @@ class SpotifyService:
 
             tracks = []
 
-            for item in reccomendations['tracks']:
+            for item in recommendations['tracks']:
                 track = {
                     "id": item['id'],
                     "name": item['name'],
@@ -124,5 +124,5 @@ class SpotifyService:
                 tracks.append(track)
             return tracks
         except Exception as e:
-            logger.error(f"Error getting Spotify reccomendations: {e}")
+            logger.error(f"Error getting Spotify recommendations: {e}")
             return []

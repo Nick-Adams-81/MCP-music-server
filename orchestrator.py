@@ -6,7 +6,7 @@ searches across multiple platforms.
 
 import asyncio
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from servicies.spotify_service import SpotifyService
 from servicies.youtube_service import YouTubeService
@@ -73,12 +73,12 @@ class MusicDiscoveryOrchestrator:
             logger.error(f"Error in cross-platform search: {e}")
             return {"status": "error", "message": str(e)}
         
-    async def get_music_reccomendations(self, 
-                                        seed_tracks: List[str] = None, 
+    async def get_music_recommendations(self,
+                                        seed_tracks: List[str] = None,
                                         seed_artists: List[str] = None) -> Dict[str, Any]:
-        """Get music reccomendations from Spotify"""
+        """Get music recommendations from Spotify"""
         try:
-            recommendations = await self.spotify.get_reccomendations(
+            recommendations = await self.spotify.get_recommendations(
                 seed_tracks=seed_tracks,
                 seed_artists=seed_artists,
                 limit=10

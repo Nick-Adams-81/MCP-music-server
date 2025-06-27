@@ -4,7 +4,7 @@ This module provides the YouTubeService class for interacting with the YouTube D
 """
 
 import logging
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from googleapiclient.discovery import build
 
