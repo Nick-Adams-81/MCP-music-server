@@ -1,14 +1,7 @@
 # ===========================================
-# MUSIC DISCOVERY MCP SERVER - ENVIRONMENT
+# MUSIC MCP SERVER - ENVIRONMENT
 # ===========================================
-# 
-# ⚠️  SECURITY WARNING ⚠️
-# - Copy this file to .env and fill in your actual API keys
-# - NEVER commit .env to version control
-# - Keep your API keys secure and rotate them regularly
-# - Use different keys for development and production
-#
-# ===========================================
+
 
 # Spotify Configuration
 # Get your Spotify credentials from: https://developer.spotify.com/dashboard
@@ -29,16 +22,3 @@ LASTFM_API_KEY=your_lastfm_api_key_here
 
 # Optional: Set log level (DEBUG, INFO, WARNING, ERROR)
 LOG_LEVEL=INFO
-
-# ===========================================
-# DEPLOYMENT NOTES
-# ===========================================
-# 
-# For production deployment:
-# 1. Use environment variables or a secure secrets manager
-# 2. Restrict API key permissions to minimum required scopes
-# 3. Set up API key rotation schedules
-# 4. Monitor API usage for unusual activity
-# 5. Use HTTPS for all API communications
-#
-# =========================================== 
