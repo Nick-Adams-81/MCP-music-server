@@ -1,0 +1,16 @@
+{
+    "mcpServers": {
+        "music-discovery": {
+            "command": "python",
+            "args": ["server.py"],
+            "cwd": "/Users/nicholasadams/Code/MCP-music-server",
+            "env": {
+                "PYTHONPATH": "/Users/nicholasadams/Code/MCP-music-server",
+                "SPOTIFY_CLIENT_ID": "your_spotify_client_id_here",
+                "SPOTIFY_CLIENT_SECRET": "your_spotify_client_secret_here",
+                "YOUTUBE_API_KEY": "your_youtube_api_key_here",
+                "LASTFM_API_KEY": "your_lastfm_api_key_here"
+            }
+        }
+    }
+} 
