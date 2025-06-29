@@ -1,0 +1,13 @@
+{
+    "mcpServers":
+    {
+        "music-discovery": {
+            "command": "python",
+            "args": ["mcp_server.py"],
+            "cwd": "/Users/nicholasadams/Code/MCP-music-server",
+            "env": {
+                "PYTHONPATH": "/Users/nicholasadams/Code/MCP-music-server"
+            }
+        }
+    }
+}
